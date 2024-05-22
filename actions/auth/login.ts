@@ -3,7 +3,7 @@ import { signIn } from "@/auth";
 import { getUserByEmail } from "@/actions/auth/get-user-by-email";
 import { sendVerificationEmail } from "@/actions/auth/mail-send-verification";
 import { generateVerificationToken } from "@/lib/tokens";
-import { DEFAULT_ADMIN_LOGIN_REDIRECT, DEFAULT_USER_LOGIN_REDIRECT } from "@/routes";
+import { DEFAULT_USER_LOGIN_REDIRECT } from "@/routes";
 import { LoginSchema } from "@/schemas";
 import { AuthError } from "next-auth";
 import { z } from "zod";
@@ -48,7 +48,7 @@ export const login = async (values: z.infer<typeof LoginSchema>): Promise<{
         await signIn("credentials", {
             email,
             password,
-            redirectTo: DEFAULT_USER_LOGIN_REDIRECT,
+            redirectTo: '/',
         });
     } catch (error) {
         // If error is instance of AuthError, check type and return appropriate message
