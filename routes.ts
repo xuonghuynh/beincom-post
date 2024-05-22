@@ -3,7 +3,7 @@
 */
 
 export const publicRoutes = [
-    "/about",
+    "/verify-email",
 ]
 
 /**
