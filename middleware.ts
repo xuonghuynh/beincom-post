@@ -13,11 +13,7 @@ export default auth((req) => {
     let isPublicRoute = false
     const isAuthRoute = authRoutes.includes(nextUrl.pathname)
 
-    if (nextUrl.pathname === "/") {
-        isPublicRoute = true; // For homepage
-    } else {
-        isPublicRoute = publicRoutes.some(route => nextUrl.pathname === route || nextUrl.pathname.startsWith(route + '/'));
-    }    
+    isPublicRoute = publicRoutes.some(route => nextUrl.pathname === route);   
 
     if(isApiAuthRoute) {
         return 
