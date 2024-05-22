@@ -6,6 +6,7 @@ import { auth } from "@/auth";
 import { getServerCurrentUser } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { DEFAULT_USER_LOGIN_REDIRECT } from "@/routes";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,9 @@ export default async function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={inter.className}>{children}</body>
+            <body className={inter.className}>
+                <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+            </body>
         </html>
     );
 }
