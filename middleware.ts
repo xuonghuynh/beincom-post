@@ -10,10 +10,10 @@ export default auth((req) => {
     const isLoggedIn = !!req.auth
     
     const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix)
-    let isPublicRoute = false
     const isAuthRoute = authRoutes.includes(nextUrl.pathname)
+    const isPublicRoute = publicRoutes.includes(nextUrl.pathname)   
 
-    isPublicRoute = publicRoutes.some(route => nextUrl.pathname === route);   
+    console.log(nextUrl.pathname, isPublicRoute)
 
     if(isApiAuthRoute) {
         return 
