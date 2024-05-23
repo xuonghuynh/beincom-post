@@ -5,8 +5,8 @@ import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
 import { getServerCurrentUser } from "@/lib/auth";
 import { redirect } from "next/navigation";
-import { DEFAULT_USER_LOGIN_REDIRECT } from "@/routes";
 import Navbar from "@/app/(home)/_components/Navbar";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +21,7 @@ export default async function RootLayout({
     children: React.ReactNode;
 }>) {
     const session = await auth();
-    const user = await getServerCurrentUser()
+    const user = await getServerCurrentUser();
     if (!user) {
         redirect("/login");
     }
@@ -29,6 +29,7 @@ export default async function RootLayout({
         <SessionProvider session={session}>
             <html lang="en">
                 <body className={inter.className}>
+                    <Toaster />
                     <Navbar />
                     <div className="bg-gray-100 h-full">{children}</div>
                 </body>

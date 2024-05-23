@@ -17,9 +17,11 @@ import Editor from "@/components/editor/Editor";
 import "@/components/editor/prosemirror.css";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { usePostDialog } from "@/stores/usePostDialog";
 
 const CreatePostForm = () => {
     const router = useRouter();
+    const {setOpen} = usePostDialog();
     const form = useForm<z.infer<typeof CreatePostSchema>>({
         resolver: zodResolver(CreatePostSchema),
         defaultValues: {
@@ -38,6 +40,7 @@ const CreatePostForm = () => {
                 console.log(result.data);
                 router.refresh();
                 toast.success("Create post successfully!");
+                setOpen(false)
             }
         } catch (error) {
             toast.error("Something went wrong");

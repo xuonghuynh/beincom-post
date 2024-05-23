@@ -2,11 +2,12 @@ import NewPostDialog from "@/components/NewPostDialog";
 import AnimatedGradientText from "@/components/ui/animated-gradient-text";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { usePostDialog } from "@/stores/usePostDialog";
 import { ChevronRight } from "lucide-react";
 import React from "react";
 
 const NewPostButton = () => {
-    const [open, setOpen] = React.useState(false);
+    const { setOpen } = usePostDialog();
     return (
         <div>
             <Button
@@ -26,7 +27,7 @@ const NewPostButton = () => {
                     <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
                 </AnimatedGradientText>
             </Button>
-            <NewPostDialog open={open} setOpen={setOpen} />
+            <NewPostDialog />
         </div>
     );
 };

@@ -8,13 +8,10 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 import CreatePostForm from "@/components/CreatePostForm";
+import { usePostDialog } from "@/stores/usePostDialog";
 
-interface Props {
-    open: boolean;
-    setOpen: (open: boolean) => void;
-}
-
-const NewPostDialog = ({ open, setOpen }: Props) => {
+const NewPostDialog = () => {
+    const { open, setOpen } = usePostDialog();
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogContent>
