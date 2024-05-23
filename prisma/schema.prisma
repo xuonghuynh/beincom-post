@@ -70,14 +70,14 @@ model ResetPasswordToken {
 
 model Post {
   id          String    @id @default(cuid())
-  title       String
+  title       String?
   content     String
   published   Boolean
   authorId    String
   author      User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
   likes       Like[]
-  imageUrl    String
-  publishedAt DateTime
+  imageUrl    String?
+  publishedAt DateTime?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   Comment     Comment[]

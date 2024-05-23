@@ -1,16 +1,27 @@
-'use client';
-import { LogOut } from "lucide-react";
-import { signOut } from "next-auth/react";
+"use client";
+import LeftSidebar from "@/app/(home)/_components/LeftSidebar";
+import NewPostButton from "@/components/NewPostButton";
+import WhiteBoxWrapper from "@/components/WhileWrapper";
 
 export default function Home() {
     return (
-        <div>
-            <div
-                className="flex cursor-pointer items-center"
-                onClick={() => signOut()}
-            >
-                <LogOut className="mr-2 h-4 w-4" />
-                Logout
+        <div className="container pt-20">
+            <div className="flex items-start justify-between gap-x-4 md:gap-x-11">
+                <div className="max-w-layout-side-pane flex-grow">
+                    <WhiteBoxWrapper className="!p-2">
+                        <LeftSidebar />
+                    </WhiteBoxWrapper>
+                </div>
+                <div className="flex-grow">
+                    <WhiteBoxWrapper>
+                        <NewPostButton />
+                    </WhiteBoxWrapper>
+                </div>
+                <div className="max-w-layout-side-pane flex-grow">
+                    <WhiteBoxWrapper>
+                        <div></div>
+                    </WhiteBoxWrapper>
+                </div>
             </div>
         </div>
     );

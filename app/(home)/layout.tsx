@@ -6,6 +6,7 @@ import { auth } from "@/auth";
 import { getServerCurrentUser } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { DEFAULT_USER_LOGIN_REDIRECT } from "@/routes";
+import Navbar from "@/app/(home)/_components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,15 +22,16 @@ export default async function RootLayout({
 }>) {
     const session = await auth();
     const user = await getServerCurrentUser()
-    console.log(user)
     if (!user) {
-        console.log('object')
         redirect("/login");
     }
     return (
         <SessionProvider session={session}>
             <html lang="en">
-                <body className={inter.className}>{children}</body>
+                <body className={inter.className}>
+                    <Navbar />
+                    <div className="bg-gray-100 h-full">{children}</div>
+                </body>
             </html>
         </SessionProvider>
     );
