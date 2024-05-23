@@ -18,10 +18,14 @@ import "@/components/editor/prosemirror.css";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { usePostDialog } from "@/stores/usePostDialog";
+import { useQuery } from "@tanstack/react-query";
 
 const CreatePostForm = () => {
     const router = useRouter();
     const {setOpen} = usePostDialog();
+    const { refetch  } = useQuery({
+        queryKey: ["posts"],
+    })
     const form = useForm<z.infer<typeof CreatePostSchema>>({
         resolver: zodResolver(CreatePostSchema),
         defaultValues: {
@@ -37,10 +41,9 @@ const CreatePostForm = () => {
                 values
             )
             if (result.status === 200) {
-                console.log(result.data);
-                router.refresh();
                 toast.success("Create post successfully!");
                 setOpen(false)
+                refetch();
             }
         } catch (error) {
             toast.error("Something went wrong");

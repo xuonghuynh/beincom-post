@@ -77,7 +77,14 @@
 
 html,
 body {
-    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: scroll;
 }
 
 .max-w-layout-side-pane {
