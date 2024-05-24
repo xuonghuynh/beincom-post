@@ -28,6 +28,7 @@
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "holy-loader": "^2.3.1",
     "html-react-parser": "^5.1.10",
     "javascript-time-ago": "^2.5.10",
     "lucide-react": "^0.379.0",

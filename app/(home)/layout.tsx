@@ -8,12 +8,13 @@ import { redirect } from "next/navigation";
 import Navbar from "@/app/(home)/_components/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 import { ReactQueryProvider } from "@/ultils/providers/ReactQuery";
+import HolyLoader from "holy-loader";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "BIC Test",
+    title: "BIC",
     description: "Beincom please hire me !!!",
 };
 
@@ -32,6 +33,7 @@ export default async function RootLayout({
             <html lang="en">
                 <body className={cn(`bg-gray-100`, inter.className)}>
                     <Toaster />
+                    <HolyLoader color="#9664D3" />
                     <Navbar />
                     <div className=" h-full">
                         <ReactQueryProvider>{children}</ReactQueryProvider>
