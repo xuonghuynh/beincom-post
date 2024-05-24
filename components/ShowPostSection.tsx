@@ -1,31 +1,73 @@
-'use client';
+"use client";
 import { Post, User } from "@prisma/client";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 import PostContent from "@/components/PostContent";
+import { usePosts } from "@/hooks/useGetPosts";
+import { toast } from "sonner";
 
 type PostProps = Post & {
     author: User;
 };
 
 const ShowPostSection = () => {
-    const { data: posts, isLoading, error } = useQuery({
-        queryKey: ["posts"],
-        queryFn: () => {
-            return axios.get("/api/post").then((res) => res.data);
-        },
-    });
-    console.log(posts)
-    
+    const { ref, inView } = useInView();
+    const {
+        data,
+        error,
+        isLoading,
+        hasNextPage,
+        fetchNextPage,
+        isSuccess,
+        isFetchingNextPage,
+    } = usePosts();
+
+    useEffect(() => {
+        if (inView && hasNextPage) {
+            console.log("object");
+            fetchNextPage();
+        }
+    }, [hasNextPage, inView, fetchNextPage]);
+
+    if (error) {
+        console.log(error);
+        toast.error("Something went wrong when fetch posts");
+    }
+
     return (
-        <div>
-            {posts?.map((post: PostProps) => (
-                <div key={post.id} className="p-4 bg-white rounded-md mt-4">
-                    <PostContent post={post} />
-                </div>
-            ))}
+        <div className="mt-10">
+            {isSuccess &&
+                data?.pages.map((page) =>
+                    page.data.map((post: PostProps, index: number) => {
+                        if (page.data.length === index + 1) {
+                            return (
+                                <div
+                                    ref={ref}
+                                    key={post.id}
+                                    className="p-4 bg-white rounded-md mt-4"
+                                >
+                                    <PostContent post={post} />
+                                </div>
+                            );
+                        } else {
+                            return (
+                                <div
+                                    key={post.id}
+                                    className="p-4 bg-white rounded-md mt-4"
+                                >
+                                    <PostContent post={post} />
+                                </div>
+                            );
+                        }
+                    })
+                )}
+
+            {(isLoading || isFetchingNextPage) && (
+                <p className="mb-4">Loading...</p>
+            )}
         </div>
     );
 };
