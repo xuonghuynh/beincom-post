@@ -13,7 +13,7 @@ export default function Home() {
                         <LeftSidebar />
                     </WhiteBoxWrapper>
                 </div>
-                <div className="flex-grow">
+                <div className="flex-grow max-w-layout-main-pane min-w-layout-main-pane">
                     <WhiteBoxWrapper className="!px-1">
                         <NewPostButton />
                     </WhiteBoxWrapper>

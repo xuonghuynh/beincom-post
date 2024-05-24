@@ -20,6 +20,8 @@ export async function GET(req: Request) {
             }),
             include: {
                 author: true,
+                comments: true,
+                likes: true,
             },
             orderBy: {
                 createdAt: "desc",
@@ -51,6 +53,8 @@ export async function GET(req: Request) {
             },
             include: {
                 author: true,
+                comments: true,
+                likes: true,
             },
         });
 

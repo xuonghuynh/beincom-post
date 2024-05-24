@@ -8,6 +8,7 @@ import { redirect } from "next/navigation";
 import Navbar from "@/app/(home)/_components/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 import { ReactQueryProvider } from "@/ultils/providers/ReactQuery";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,10 +30,10 @@ export default async function RootLayout({
     return (
         <SessionProvider session={session}>
             <html lang="en">
-                <body className={inter.className}>
+                <body className={cn(`bg-gray-100`, inter.className)}>
                     <Toaster />
                     <Navbar />
-                    <div className="bg-gray-100 h-full">
+                    <div className=" h-full">
                         <ReactQueryProvider>{children}</ReactQueryProvider>
                     </div>
                 </body>

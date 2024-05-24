@@ -1,17 +1,11 @@
 "use client";
-import { Post, User } from "@prisma/client";
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
 import PostContent from "@/components/PostContent";
 import { usePosts } from "@/hooks/useGetPosts";
 import { toast } from "sonner";
-
-type PostProps = Post & {
-    author: User;
-};
+import { PostProps } from "@/types/types";
 
 const ShowPostSection = () => {
     const { ref, inView } = useInView();
@@ -38,7 +32,7 @@ const ShowPostSection = () => {
     }
 
     return (
-        <div className="mt-10">
+        <div className="mt-10 h-screen">
             {isSuccess &&
                 data?.pages.map((page) =>
                     page.data.map((post: PostProps, index: number) => {

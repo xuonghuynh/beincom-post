@@ -74,19 +74,26 @@
         @apply bg-background text-foreground;
     }
 }
-
 html,
 body {
+    /* height: auto; */
     margin: 0;
     padding: 0;
+    min-height: 100vh; /* Minimum height of 100% of viewport height */
+    display: flex;
+    flex-direction: column;
 }
 
 body {
-    height: auto;
-    min-height: 100vh;
-    overflow-y: scroll;
+    flex-grow: 1; /* Body takes up remaining space */
 }
 
 .max-w-layout-side-pane {
     @apply max-w-[320px];
+}
+.max-w-layout-main-pane {
+    @apply max-w-[672px];
+}
+.min-w-layout-main-pane {
+    @apply min-w-[524px];
 }
