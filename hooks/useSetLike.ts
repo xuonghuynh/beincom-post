@@ -10,6 +10,10 @@ export const useSetLike = () => {
         onSuccess: (data) => {
             queryClient.invalidateQueries({ queryKey: ["posts"] });
             toast.success(data)
+        },
+        onError: (error) => {
+            toast.error("Something went wrong");
+            console.log(error);
         }
     });
 };

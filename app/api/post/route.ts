@@ -20,7 +20,11 @@ export async function GET(req: Request) {
             }),
             include: {
                 author: true,
-                comments: true,
+                comments: {
+                    include: {
+                        author: true,
+                    },
+                },
                 likes: true,
             },
             orderBy: {
@@ -53,7 +57,11 @@ export async function GET(req: Request) {
             },
             include: {
                 author: true,
-                comments: true,
+                comments: {
+                    include: {
+                        author: true,
+                    },
+                },
                 likes: true,
             },
         });

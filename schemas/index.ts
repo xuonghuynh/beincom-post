@@ -30,3 +30,7 @@ export const NewPasswordSchema = z.object({
 export const CreatePostSchema = z.object({
     content: z.string().min(10, { message: "Content is required" }),
 })
+
+export const CreateCommentSchema = z.object({
+    comment: z.string().min(1, { message: "Comment cannot be empty" }),
+})

@@ -16,7 +16,7 @@ const allPosts = async ({ take, lastCursor }: PostQueryParams) => {
 export const usePosts = () => {
     return useInfiniteQuery({
         queryFn: ({ pageParam = "" }) =>
-            allPosts({ take: 10, lastCursor: pageParam }),
+            allPosts({ take: 5, lastCursor: pageParam }),
         queryKey: ["posts"],
         getNextPageParam: (lastPage) => {
             return lastPage?.metaData.lastCursor;
