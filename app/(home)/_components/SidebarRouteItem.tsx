@@ -21,7 +21,7 @@ const SidebarRouteItem = ({ lable, icon: Icon, href }: SidebarItemProps) => {
         <Link
             href={href}
             className={cn(
-                "flex items-center gap-x-2 pl-6 text-sm font-[500] text-slate-500 transition-all hover:bg-orange-300/20 hover:text-slate-600 rounded-md",
+                "flex items-center gap-x-2 pl-6 text-sm font-[500] text-slate-500 transition-all hover:bg-fuchsia-300/20 hover:text-slate-600 rounded-md",
                 isActive &&
                     "bg-orange-200/20 text-orange-700 hover:bg-orange-200/20 hover:text-orange-700",
             )}

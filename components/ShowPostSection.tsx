@@ -57,7 +57,10 @@ const ShowPostSection = () => {
                             );
                         }
                     })
-                )}
+                )
+                
+            }
+            
 
             {(isLoading || isFetchingNextPage) && (
                 <p className="mb-4">Loading...</p>

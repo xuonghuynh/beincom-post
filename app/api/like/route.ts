@@ -24,11 +24,11 @@ export async function POST(req: Request) {
         if (existingLike) {
             // Unlike the post
             await db.like.delete({ where: { id: existingLike.id } });
-            return new Response('Post unliked');
+            return new Response('You just unliked the post');
           } else {
             // Like the post
             await db.like.create({ data: { userId, postId } });
-            return new Response('Post liked');
+            return new Response('You just liked the post');
           }
     } catch (error) {
         console.log(error);

@@ -3,7 +3,7 @@ import React from "react";
 
 const ForgotPasswordPage = () => {
     return (
-        <div className="flex min-h-[50vh] w-[40%] items-center justify-center py-20">
+        <div className="flex h-screen items-center justify-center py-20">
             <ForgotPasswordForm />
         </div>
     );
