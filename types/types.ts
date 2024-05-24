@@ -3,7 +3,10 @@ import { User } from "next-auth";
 
 export type PostProps = Post & {
     author: User;
-    comments: Comment[];
+    comments: Comment &
+        {
+            author: User;
+        }[];
     likes: Like[];
 };
 
