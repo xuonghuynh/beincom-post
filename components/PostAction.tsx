@@ -9,12 +9,13 @@ import React from "react";
 import { toast } from "sonner";
 import { FaRegThumbsUp, FaThumbsUp } from "react-icons/fa";
 import { useSetLike } from "@/hooks/useSetLike";
+import Link from "next/link";
 
 const PostAction = ({ post }: PostChildProps) => {
     const user = useCurrentUser();
     const userId = user?.id;
 
-    const { mutate: mutateLike, data, isSuccess } = useSetLike()
+    const { mutate: mutateLike, data, isSuccess } = useSetLike(post.id);
 
     return (
         <div className="flex items-center justify-between gap-2 border-t border-b py-2 mt-4">
@@ -31,10 +32,12 @@ const PostAction = ({ post }: PostChildProps) => {
                     )}
                     Like
                 </Button>
-                <Button className="flex items-center gap-2" variant="ghost">
-                    <MessageCircle className="h-4 w-4" />
-                    Comment
-                </Button>
+                <Link href={`/posts/${post.id}`}>
+                    <Button className="flex items-center gap-2" variant="ghost">
+                        <MessageCircle className="h-4 w-4" />
+                        Comment
+                    </Button>
+                </Link>
             </div>
             <div className="flex items-center gap-2">
                 <LikeLength length={post.likes.length} />

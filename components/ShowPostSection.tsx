@@ -32,7 +32,7 @@ const ShowPostSection = () => {
     }
 
     return (
-        <div className="mt-10 h-screen">
+        <div className="mt-10">
             {isSuccess &&
                 data?.pages.map((page) =>
                     page.data.map((post: PostProps, index: number) => {

@@ -1,4 +1,5 @@
 import AvataAndName from "@/components/AvataAndName";
+import CommentAction from "@/components/CommentAction";
 import { PostChildProps } from "@/types/types";
 import Link from "next/link";
 import React, { useEffect } from "react";
@@ -29,7 +30,7 @@ const ShowComment = ({ post }: PostChildProps) => {
                     {comment.content}
                 </div>
             </div>
-            
+            <CommentAction post={post} />
         </div>
     );
 };

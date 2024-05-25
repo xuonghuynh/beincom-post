@@ -36,7 +36,7 @@ const CommentAction = ({ post }: PostChildProps) => {
 
     const { isSubmitting, isValid } = form.formState;
 
-    const { mutate: mutateComment, isSuccess } = useComment();
+    const { mutate: mutateComment, isSuccess } = useComment(post.id);
 
     const submitForm = () => {
         form.handleSubmit(onSubmit)();

@@ -15,13 +15,14 @@ const commentOnPost = async ({ postId, content }: CommentQueryParams) => {
     return response?.data;
 };
 
-export const useComment = () => {
+export const useComment = (postId: string) => {
     const queryClient = useQueryClient();
     return useMutation({
         mutationFn: ({postId, content}: CommentQueryParams) =>
             commentOnPost({ postId, content }),
         onSuccess: (data) => {
             queryClient.invalidateQueries({ queryKey: ["posts"] });
+            queryClient.invalidateQueries({ queryKey: ["post", postId] });
             toast.success(data);
         },
         onError: (error) => {

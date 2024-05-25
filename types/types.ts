@@ -1,5 +1,4 @@
-import { Like, Post, Comment } from "@prisma/client";
-import { User } from "next-auth";
+import { Like, Post, Comment, User } from "@prisma/client";
 
 export type PostProps = Post & {
     author: User;
@@ -20,3 +19,11 @@ export type PostChildProps = {
         likes: Like[];
     };
 };
+
+export type PostContentProps = PostChildProps & {
+    showAllComment?: boolean;
+}
+
+export type CommentProps = Comment & {
+    author: User;
+}

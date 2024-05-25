@@ -31,13 +31,11 @@ export default async function RootLayout({
     return (
         <SessionProvider session={session}>
             <html lang="en">
-                <body className={cn(`bg-gray-100`, inter.className)}>
+                <body className={cn(`bg-gray-100 overflow-hidden`, inter.className)}>
                     <Toaster />
                     <HolyLoader color="#9664D3" />
                     <Navbar />
-                    <div className=" h-full">
-                        <ReactQueryProvider>{children}</ReactQueryProvider>
-                    </div>
+                    <ReactQueryProvider>{children}</ReactQueryProvider>
                 </body>
             </html>
         </SessionProvider>

@@ -1,30 +1,32 @@
 "use client";
 import LeftSidebar from "@/app/(home)/_components/LeftSidebar";
+import ContainerWrapper from "@/components/ContainerWrapper";
 import NewPostButton from "@/components/NewPostButton";
 import ShowPostSection from "@/components/ShowPostSection";
+import WelcomeSection from "@/components/WelcomeSection";
 import WhiteBoxWrapper from "@/components/WhileWrapper";
 
 export default function Home() {
     return (
-        <div className="container pt-20">
-            <div className="flex items-start justify-between gap-x-4 md:gap-x-11">
-                <div className=" max-w-layout-side-pane flex-grow sticky top-20">
+        <ContainerWrapper>
+            <div className="flex items-start justify-center gap-x-12 px-6 xl:px-12">
+                <div className="min-w-layout-side-pane max-w-layout-side-pane grow sticky top-0 pt-6">
                     <WhiteBoxWrapper className="!p-2 ">
                         <LeftSidebar />
                     </WhiteBoxWrapper>
                 </div>
-                <div className="flex-grow max-w-layout-main-pane min-w-layout-main-pane">
+                <div className="flex-grow max-w-layout-main-pane min-w-layout-main-pane pt-6 mb-20">
                     <WhiteBoxWrapper className="!px-1">
                         <NewPostButton />
                     </WhiteBoxWrapper>
                     <ShowPostSection />
                 </div>
-                <div className="max-w-layout-side-pane flex-grow sticky top-20">
+                <div className="min-w-layout-side-pane max-w-layout-side-pane grow sticky top-0 pt-6">
                     <WhiteBoxWrapper>
-                        <div></div>
+                        <WelcomeSection />
                     </WhiteBoxWrapper>
                 </div>
             </div>
-        </div>
+        </ContainerWrapper>
     );
 }
