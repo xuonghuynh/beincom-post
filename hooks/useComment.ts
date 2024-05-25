@@ -21,8 +21,7 @@ export const useComment = (postId: string) => {
         mutationFn: ({postId, content}: CommentQueryParams) =>
             commentOnPost({ postId, content }),
         onSuccess: (data) => {
-            queryClient.invalidateQueries({ queryKey: ["posts"] });
-            queryClient.invalidateQueries({ queryKey: ["post", postId] });
+            queryClient.invalidateQueries();
             toast.success(data);
         },
         onError: (error) => {

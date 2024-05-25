@@ -13,7 +13,7 @@ const PostPage = ({ params }: { params: { postId: string } }) => {
     return (
         <ContainerWrapper>
             <div className="flex justify-center pt-6 mb-20">
-                <div className="max-w-layout-main-pane min-w-layout-main-pane bg-white p-4 rounded-md">
+                <div className="max-w-layout-main-pane min-w-layout-main-pane bg-white p-4 rounded-md w-full">
                     {status === "pending" ? (
                         "Loading..."
                     ) : status === "error" ? (

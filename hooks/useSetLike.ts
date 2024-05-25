@@ -8,8 +8,7 @@ export const useSetLike = (postId: string) => {
         mutationFn: (postId: string) =>
             axios.post("/api/like", { postId }).then((res) => res.data),
         onSuccess: (data) => {
-            queryClient.invalidateQueries({ queryKey: ["posts"] });
-            queryClient.invalidateQueries({ queryKey: ["post", postId] });
+            queryClient.invalidateQueries();
             toast.success(data)
         },
         onError: (error) => {
