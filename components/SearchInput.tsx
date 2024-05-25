@@ -18,7 +18,7 @@ const SearchInput = ({onChange}: Props) => {
             {
                 url: "/search",
                 query: {
-                    name: searchValue,
+                    content: searchValue,
                 },
             },
             { skipNull: true, skipEmptyString: true },
