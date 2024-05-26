@@ -11,17 +11,12 @@ const routesMenu = [
     },
     {
         lable: "People",
-        href: "/",
+        href: "/people",
         icon: User,
     },
     {
-        lable: "Saved Posts",
-        href: "/",
-        icon: Bookmark,
-    },
-    {
         lable: "Liked Posts",
-        href: "/",
+        href: "/liked-posts",
         icon: Heart,
     }
 ];

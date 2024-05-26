@@ -21,9 +21,9 @@ const SidebarRouteItem = ({ lable, icon: Icon, href }: SidebarItemProps) => {
         <Link
             href={href}
             className={cn(
-                "flex items-center gap-x-2 pl-6 text-sm font-[500] text-slate-500 transition-all hover:bg-fuchsia-300/20 hover:text-slate-600 rounded-md",
+                "flex items-center gap-x-2 pl-6 text-sm font-[500] text-slate-500 transition-all hover:bg-purple-200/20 hover:text-slate-600 rounded-md",
                 isActive &&
-                    "bg-orange-200/20 text-orange-700 hover:bg-orange-200/20 hover:text-orange-700",
+                    "bg-purple-200/20 text-purple-700 hover:bg-purple-200/20 hover:text-purple-700",
             )}
         >
             <div className="flex items-center gap-x-2 py-4">
@@ -31,17 +31,11 @@ const SidebarRouteItem = ({ lable, icon: Icon, href }: SidebarItemProps) => {
                     size={22}
                     className={cn(
                         "text-slate-500",
-                        isActive && "text-orange-700",
+                        isActive && "text-purple-700",
                     )}
                 />
                 {lable}
             </div>
-            <div
-                className={cn(
-                    "ml-auto h-[54px] border-2 border-orange-700 opacity-0 transition-all",
-                    isActive && "opacity-100",
-                )}
-            />
         </Link>
     );
 };
