@@ -15,7 +15,7 @@ const SidebarRouteItem = ({ lable, icon: Icon, href }: SidebarItemProps) => {
     const pathname = usePathname();
     const router = useRouter();
 
-    const isActive = href==="/dashboard" && pathname !== href ? false : pathname.startsWith(href);
+    const isActive = href==="/" && pathname !== href ? false : pathname.startsWith(href);
 
     return (
         <Link

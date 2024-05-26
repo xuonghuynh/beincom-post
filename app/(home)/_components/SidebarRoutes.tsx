@@ -9,14 +9,14 @@ const routesMenu = [
         href: "/",
         icon: Layout,
     },
-    {
-        lable: "People",
-        href: "/people",
-        icon: User,
-    },
+    // {
+    //     lable: "People",
+    //     href: "/people",
+    //     icon: User,
+    // },
     {
         lable: "Liked Posts",
-        href: "/liked-posts",
+        href: "/posts/liked",
         icon: Heart,
     }
 ];
