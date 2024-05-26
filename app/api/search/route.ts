@@ -10,13 +10,19 @@ export async function POST(req: Request) {
             return new NextResponse("Unauthorized", { status: 401 });
         }
 
-        const { content } = await req.json();
+        const { content, date } = await req.json();
 
         const post = await db.post.findMany({
             where: {
                 content: {
                     contains: content,
                     mode: 'insensitive'
+                },
+                createdAt: {
+                    ...(date && date.from && date.to ? {
+                        gte: new Date(date.from),
+                        lt: new Date(date.to),
+                      } : {}),
                 }
             },
             include: {
