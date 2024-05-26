@@ -6,22 +6,22 @@ import React from "react";
 const routesMenu = [
     {
         lable: "Home",
-        href: "/dashboard",
+        href: "/",
         icon: Layout,
     },
     {
         lable: "People",
-        href: "/dashboard/collections",
+        href: "/",
         icon: User,
     },
     {
         lable: "Saved Posts",
-        href: "/dashboard/products",
+        href: "/",
         icon: Bookmark,
     },
     {
         lable: "Liked Posts",
-        href: "/dashboard/orders",
+        href: "/",
         icon: Heart,
     }
 ];
