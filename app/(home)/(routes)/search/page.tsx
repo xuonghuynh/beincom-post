@@ -7,6 +7,7 @@ import PostContent from "@/components/PostContent";
 import WhiteBoxWrapper from "@/components/WhileWrapper";
 import { DateRangePicker } from "@/components/CalendarFilter";
 import qs from "query-string";
+import { SkeletonPost } from "@/components/PostSkeleton";
 
 interface SearchPageProps {
     searchParams: { content: string };
@@ -22,13 +23,16 @@ const SearchPage = () => {
     const date = {
         from: startDate,
         to: endDate,
-    }
+    };
 
-    const { data: posts, status, error } = useGetPostBySearch({content: currentSearchContent || "", date});
-
+    const {
+        data: posts,
+        status,
+        error,
+    } = useGetPostBySearch({ content: currentSearchContent || "", date });
 
     const handleOnUpdate = (values: any) => {
-        console.log(values)
+        console.log(values);
         const url = qs.stringifyUrl(
             {
                 url: pathName,
@@ -45,8 +49,8 @@ const SearchPage = () => {
 
     return (
         <ContainerWrapper>
-            <div className="flex items-start justify-center gap-x-12 px-6 xl:px-12">
-                <div className="min-w-layout-side-pane max-w-layout-side-pane grow sticky top-0 pt-6">
+            <div className="flex flex-col md:flex-row items-start md:justify-center gap-x-12 px-4 xl:px-12">
+                <div className="min-w-layout-side-pane w-full md:w-auto md:max-w-[320px] md:grow md:sticky md:top-0 pt-6">
                     <WhiteBoxWrapper className="p-4">
                         <div className="flex items-center gap-2">
                             {/* <Calendar className="w-5 h-5" /> */}
@@ -61,15 +65,18 @@ const SearchPage = () => {
                         </div>
                     </WhiteBoxWrapper>
                 </div>
-                <div className="max-w-layout-main-pane min-w-layout-main-pane w-full pt-6">
+                <div className="max-w-layout-main-pane md:min-w-layout-main-pane w-full pt-6 mb-20">
                     {status === "pending" ? (
-                        "Loading..."
+                        <SkeletonPost />
                     ) : status === "error" ? (
                         <span>Error: {error.message}</span>
                     ) : status === "success" && !posts ? (
                         <div className="italic">Post not found</div>
                     ) : status === "success" && posts.length === 0 ? (
-                        <div className="italic">Sorry, we couldn&apos;t find anything related to your search.</div>
+                        <div className="italic">
+                            Sorry, we couldn&apos;t find anything related to
+                            your search.
+                        </div>
                     ) : (
                         <div className="flex flex-col gap-4">
                             {posts.map((post: any) => (
@@ -80,7 +87,7 @@ const SearchPage = () => {
                         </div>
                     )}
                 </div>
-                <div className="min-w-layout-side-pane max-w-layout-side-pane grow sticky top-0 pt-6"></div>
+                <div className="min-w-layout-side-pane max-w-layout-side-pane grow sticky top-0 pt-6 hidden xl:block"></div>
             </div>
         </ContainerWrapper>
     );

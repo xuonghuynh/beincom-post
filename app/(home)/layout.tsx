@@ -10,6 +10,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { ReactQueryProvider } from "@/ultils/providers/ReactQuery";
 import HolyLoader from "holy-loader";
 import { cn } from "@/lib/utils";
+import MobileNavbar from "@/app/(home)/_components/MobileNavbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +37,7 @@ export default async function RootLayout({
                     <HolyLoader color="#9664D3" />
                     <Navbar />
                     <ReactQueryProvider>{children}</ReactQueryProvider>
+                    <MobileNavbar />
                 </body>
             </html>
         </SessionProvider>

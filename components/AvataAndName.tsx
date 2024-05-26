@@ -5,6 +5,7 @@ import { useCurrentUser } from "@/hooks/useCurrentUser";
 import ReactTimeAgo from "react-time-ago";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
+import { cn } from "@/lib/utils";
 TimeAgo.addDefaultLocale(en);
 
 type AvataAndNameProps = {
@@ -24,7 +25,7 @@ const AvataAndName = ({
 }: AvataAndNameProps) => {
     const user = useCurrentUser();
     return (
-        <div className="flex items-center gap-x-4">
+        <div className={cn("flex items-center", !hideName && "gap-x-4" )}>
             <Avatar>
                 <AvatarImage src={image || ""} />
                 <AvatarFallback className="uppercase">

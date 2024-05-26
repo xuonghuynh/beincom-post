@@ -56,7 +56,7 @@ const CommentAction = ({ post }: PostChildProps) => {
         }
     }, [isSuccess]);
     return (
-        <div className="flex items-start py-4 pb-0">
+        <div className="flex items-start py-4 pb-0 gap-x-4">
             <AvataAndName image={user?.image} name={user?.name} hideName />
 
             <Form {...form}>

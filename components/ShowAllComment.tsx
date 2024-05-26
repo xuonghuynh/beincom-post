@@ -11,7 +11,7 @@ const ShowAllComment = ({ post }: PostChildProps) => {
             {[...post.comments].reverse().map((comment: any) => (
                 <div
                     key={comment.id}
-                    className="flex items-start gap-1 p-4 pl-0"
+                    className="flex items-start gap-x-4 py-4 "
                 >
                     <div className="mt-3">
                         <AvataAndName

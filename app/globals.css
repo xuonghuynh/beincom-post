@@ -94,7 +94,8 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #92a1b4;
+    /* background: #92a1b4; */
+    @apply bg-purple-400;
     border-radius: 8px;
 }
 ::-webkit-scrollbar-track {

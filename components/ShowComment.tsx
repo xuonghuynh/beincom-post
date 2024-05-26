@@ -27,7 +27,7 @@ const ShowComment = ({ post }: PostChildProps) => {
                 )}
             </div>
             {comment && (
-                <div className="flex items-start gap-1 p-4 pl-0">
+                <div className="flex items-start gap-x-4 py-4">
                     <AvataAndName
                         image={comment.author.image}
                         name={comment.author.name}

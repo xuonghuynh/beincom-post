@@ -12,15 +12,15 @@ const LikedPostPage = () => {
     return (
         <ContainerWrapper>
             <div className="flex items-start justify-center gap-x-12 px-6 xl:px-12">
-                <div className="min-w-layout-side-pane max-w-layout-side-pane grow sticky top-0 pt-6">
+                <div className="md:min-w-layout-side-pane max-w-layout-side-pane grow sticky top-0 pt-6 hidden lg:block">
                     <WhiteBoxWrapper className="!p-2 ">
                         <LeftSidebar />
                     </WhiteBoxWrapper>
                 </div>
-                <div className="flex-grow max-w-layout-main-pane min-w-layout-main-pane mb-20">
+                <div className="flex-grow max-w-layout-main-pane md:min-w-layout-main-pane mb-20">
                     <ShowLikedPostSection />
                 </div>
-                <div className="min-w-layout-side-pane max-w-layout-side-pane grow sticky top-0 pt-6">
+                <div className="min-w-layout-side-pane max-w-layout-side-pane grow sticky top-0 pt-6 hidden xl:block">
                     <WhiteBoxWrapper>
                         <WelcomeSection />
                     </WhiteBoxWrapper>
