@@ -6,6 +6,7 @@ import PostContent from "@/components/PostContent";
 import { usePosts } from "@/hooks/useGetPosts";
 import { toast } from "sonner";
 import { PostProps } from "@/types/types";
+import { SkeletonPost } from "@/components/PostSkeleton";
 
 const ShowPostSection = () => {
     const { ref, inView } = useInView();
@@ -63,7 +64,7 @@ const ShowPostSection = () => {
             
 
             {(isLoading || isFetchingNextPage) && (
-                <p className="mb-4">Loading...</p>
+                <SkeletonPost />
             )}
         </div>
     );

@@ -2,6 +2,7 @@
 import AvataAndName from "@/components/AvataAndName";
 import ContainerWrapper from "@/components/ContainerWrapper";
 import PostContent from "@/components/PostContent";
+import { SkeletonPost } from "@/components/PostSkeleton";
 import { useGetPost } from "@/hooks/useGetPost";
 import React from "react";
 
@@ -15,7 +16,7 @@ const PostPage = ({ params }: { params: { postId: string } }) => {
             <div className="flex justify-center pt-6 mb-20">
                 <div className="max-w-layout-main-pane min-w-layout-main-pane bg-white p-4 rounded-md w-full">
                     {status === "pending" ? (
-                        "Loading..."
+                        <SkeletonPost />
                     ) : status === "error" ? (
                         <span>Error: {error.message}</span>
                     ) : status === "success" && !data ? (
