@@ -18,6 +18,7 @@ const SocialLogin = () => {
                 variant={"outline"}
                 size={"lg"}
                 className="w-full"
+                data-testid="google-login"
                 onClick={() => onClick("google")}
             >
                 <FcGoogle className="h-5 w-5" />
@@ -26,6 +27,7 @@ const SocialLogin = () => {
                 variant={"outline"}
                 size={"lg"}
                 className="w-full"
+                data-testid="github-login"
                 onClick={() => onClick("github")}
             >
                 <FaGithub className="h-5 w-5" />
