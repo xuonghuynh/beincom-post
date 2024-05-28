@@ -23,7 +23,6 @@ const AvataAndName = ({
     publishedAt,
     hideName = false,
 }: AvataAndNameProps) => {
-    const user = useCurrentUser();
     return (
         <div className={cn("flex items-center", !hideName && "gap-x-4" )}>
             <Avatar>
@@ -35,7 +34,7 @@ const AvataAndName = ({
             <div className="text-left hidden md:block">
                 <div className="flex items-center gap-x-1">
                     {!hideName && (
-                        <p className="text-sm font-medium">{user?.name}</p>
+                        <p className="text-sm font-medium">{name}</p>
                     )}
                     {publishedAt && <p className="text-xs">•</p>}
                     {publishedAt && (
