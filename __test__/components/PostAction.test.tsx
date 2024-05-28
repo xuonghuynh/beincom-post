@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import PostAction from "@/components/PostAction";
+import { title } from "process";
 
 vi.mock("@/hooks/useCurrentUser", () => ({
     useCurrentUser: () => ({ id: "user1" }),
@@ -19,6 +20,14 @@ vi.mock("next/link", () => ({
 describe("PostAction", () => {
     const postData = {
         id: "post1",
+        content: "Post 1",
+        authorId: "user1",
+        publishedAt: new Date(),
+        published: true,
+        title: "Post 1",
+        imageUrl: "image.png",
+        createdAt: new Date(),
+        updatedAt: new Date(),
         likes: [
             {
                 id: "like1",
@@ -36,6 +45,16 @@ describe("PostAction", () => {
                 postId: "post1",
                 createdAt: new Date(),
                 updatedAt: new Date(),
+                author: {
+                    id: "user1",
+                    name: "User 1",
+                    email: "user1@example.com",
+                    image: "image.png",
+                    emailVerified: new Date(),
+                    password: "password123",
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                }
             }
         ],
     };

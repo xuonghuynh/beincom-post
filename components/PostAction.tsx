@@ -3,7 +3,7 @@ import LikeLength from "@/components/LikeLength";
 import { Button } from "@/components/ui/button";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
 import { PostChildProps } from "@/types/types";
-import { Comment, Like, Post } from "@prisma/client";
+import { Comment, Like, Post, User } from "@prisma/client";
 import { MessageCircle, ThumbsUp } from "lucide-react";
 import React from "react";
 import { toast } from "sonner";
@@ -12,17 +12,16 @@ import { useSetLike } from "@/hooks/useSetLike";
 import Link from "next/link";
 
 interface PostProps {
-    post: {
-        id: string,
-    } & {
+    post: Post & {
         likes: Like[],
-        comments: Comment[]
+        comments: (Comment & {author: User}) []
     }
 }
 
 const PostAction = ({ post }: PostProps ) => {
     const user = useCurrentUser();
     const userId = user?.id;
+    console.log(post)
 
     const { mutate: mutateLike, data, isSuccess } = useSetLike(post.id);
 

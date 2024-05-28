@@ -12,10 +12,10 @@ export type PostProps = Post & {
 export type PostChildProps = {
     post: Post & {
         author: User;
-        comments: Comment &
+        comments: (Comment &
             {
                 author: User;
-            }[];
+            })[];
         likes: Like[];
     };
 };
