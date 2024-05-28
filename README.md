@@ -6,7 +6,7 @@ This application was developed as part of a technical assessment and showcases m
 
 I read your requirements, which suggested using JSONPlaceholder to create fake data for interaction. Finding this relatively straightforward, I decided to take it a step further and develop a full-stack web application. Leveraging Prisma and PostgreSQL, I created a web app that allows users to create posts and save them to the database efficiently.
 
-I look forward to the opportunity to join your team in the near future. Please feel free to install and test the application. If you encounter any issues, please contact me using the information provided in the contact section below.
+I look forward to the opportunity to join your team in the near future. Please feel free to install and test the application. If you encounter any issues, please contact me using the information provided in the [Contact Me](#contact-me) section below.
 
 ## Table of Contents
 
@@ -40,7 +40,13 @@ npm install
 
 3. Set up environment variables:
 
-- Rename the .env.example file to .env. Then fill out the variables in the .env file:
+- Rename the .env.example file to .env.
+
+```bash
+mv .env.example .env
+```
+
+- Fill out the variables in the .env file:
 
 ```bash
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
@@ -73,8 +79,8 @@ npm run test:ui
 
 ## Contact Me
 
-Fakebook: https://www.facebook.com/longxuong92/
-Email: longxuongz@gmail.com
+- Fakebook: https://www.facebook.com/longxuong92/
+- Email: longxuongz@gmail.com
 
 ## Prerequisites
 
