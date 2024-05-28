@@ -2,7 +2,7 @@
 
 Hi Beincom Devs,
 
-This application was developed as part of a technical assessment and showcases my proficiency with modern web development technologies and frameworks, particularly Next.js, React, TypeScript, Prisma, Shadcn, Tailwind, and NextAuth.
+This application was developed as part of a technical assessment and showcases my proficiency with modern web development technologies and frameworks, particularly Next.js, React Query, TypeScript, Prisma, Shadcn, Tailwind, and NextAuth.
 
 I read your requirements, which suggested using JSONPlaceholder to create fake data for interaction. Finding this relatively straightforward, I decided to take it a step further and develop a full-stack web application. Leveraging Prisma and PostgreSQL, I created a web app that allows users to create posts and save them to the database efficiently.
 
