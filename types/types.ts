@@ -2,10 +2,10 @@ import { Like, Post, Comment, User } from "@prisma/client";
 
 export type PostProps = Post & {
     author: User;
-    comments: Comment &
+    comments: (Comment &
         {
             author: User;
-        }[];
+        })[];
     likes: Like[];
 };
 
