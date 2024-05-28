@@ -1,4 +1,4 @@
-# About the Project
+## About the Project
 
 Hi Beincom Devs,
 
@@ -16,9 +16,9 @@ I look forward to the opportunity to join your team in the near future. Please f
 - [Contact](#contact)
 - [Prerequisites](#Prerequisites)
 
-# Live site
+## Live site
 
-I deployed this project to my small server at home. So, you can go to this site and test without install it to your local.
+I deployed this project to my small server at home. You can visit the live site to test the application without installing it locally:
 
 ```bash
 https://beincom.longxuong.com
@@ -29,20 +29,23 @@ https://beincom.longxuong.com
 1. Clone the project
 ```bash
 https://github.com/xuonghuynh/beincom-post.git
+cd beincom-post
 ```
 
-Then:
+2. Install dependencies:
 
-```
+```bash
 npm install
 ```
 
-2. You need to setup few enviroment variables to make this work. Find the .evn.example -> rename it to .env -> fill out variables. Or create a .env file in the root directory. You need to add these variables:
+3. Set up environment variables:
 
-```
+- Rename the .env.example file to .env. Then fill out the variables in the .env file:
+
+```bash
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
 DATABASE_URL="PostgreSQL URL. Example: postgres://user:password@url:5433/postgres. You can use https://neon.tech/ for free."
-AUTH_SECRET="Auth secret"
+AUTH_SECRET="Auth secret. Generate by using: 'npx auth secret' on your terminal."
 RESEND_API_KEY="Resend API key. https://resend.com/"
 GITHUB_ID="GitHub ID"
 GITHUB_SECRET="GitHub secret"
@@ -50,13 +53,10 @@ GOOGLE_ID="Google ID"
 GOOGLE_SECRET="Google secret"
 ```
 
-3. Generate and Push model to database
+4. Generate and push Prisma models to the database:
 
 ```
 npx prisma generate
-```
-Then
-```
 npx prisma db push
 ```
 
@@ -76,7 +76,7 @@ npm run test:ui
 Fakebook: https://www.facebook.com/longxuong92/
 Email: longxuongz@gmail.com
 
-### Prerequisites
+## Prerequisites
 
 - Node.js v14 or higher
 - npm v6 or higher
